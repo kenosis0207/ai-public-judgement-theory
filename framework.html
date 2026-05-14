@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<title>프레임워크 | AI 시대 공공판단 이론</title>
+<meta property="og:title" content="프레임워크 | AI 시대 공공판단 이론" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}pre {  white-space: normal;}input {  padding: 2px 4px;}img {  display: block;}details {  display: block;  margin: 0;  padding: 0;}summary::-webkit-details-marker {  display: none;}[data-thq="accordion"] [data-thq="accordion-content"] {  max-height: 0;  overflow: hidden;  transition: max-height 0.3s ease-in-out;  padding: 0;}[data-thq="accordion"] details[data-thq="accordion-trigger"][open] + [data-thq="accordion-content"] {  max-height: 1000vh;}details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {  transform: rotate(180deg);}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Roboto;
+        font-size: 1rem;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: undefined;
+        text-transform: undefined;
+        letter-spacing: 0.02em;
+        line-height: 1.6;
+        color: var(--color-on-surface);
+        background: var(--color-surface);
+
+        fill: var(--color-on-surface);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
+
+      <div class="home-container1">
+        <navigation-wrapper class="navigation-wrapper">
+          <!--Navigation component-->
+          <div class="navigation-container1">
+            <div class="navigation-container2">
+              <div class="navigation-container3">
+                <style>
+                  @media (prefers-reduced-motion: reduce) {
+                  .navigation-wrapper, .navigation-link::after, .navigation-mobile-overlay.is-active, .navigation-mobile-link {
+                    transition: none;
+                    animation: none;
+                  }
+                  }
+                </style>
+              </div>
+            </div>
+            <nav class="navigation-wrapper">
+              <div class="navigation-container">
+                <a href="index.html">
+                  <div aria-label="Aijudica Home" class="navigation-brand">
+                    <div class="navigation-logo-icon">
+                      <svg
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7 20h10M6 6l6-1l6 1m-6-3v17m-3-8L6 6l-3 6a3 3 0 0 0 6 0m12 0l-3-6l-3 6a3 3 0 0 0 6 0"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span
+                      class="navigation-thq-navigation-brand-name-elm1 navigation-brand-name section-title"
+                    >
+                      AI 시대 공공판단 이론
+                    </span>
+                  </div>
+                </a>
+                <div class="navigation-desktop-menu">
+                  <div class="navigation-links">
+                    <a href="index.html">
+                      <div class="navigation-link"><span>이론 소개</span></div>
+                    </a>
+                    <a href="index.html">
+                      <div class="navigation-link"><span>프레임워크</span></div>
+                    </a>
+                    <a href="index.html">
+                      <div class="navigation-link"><span>적용 분야</span></div>
+                    </a>
+                    <a href="index.html">
+                      <div class="navigation-link"><span>자료실</span></div>
+                    </a>
+                  </div>
+                  <div class="navigation-actions">
+                    <a href="index.html">
+                      <div class="btn-primary btn-sm btn">
+                        <span>문의하기</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <button
+                  id="nav-toggle"
+                  aria-label="Toggle navigation"
+                  aria-expanded="false"
+                  class="navigation-mobile-toggle"
+                >
+                  <svg
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    class="icon-menu"
+                  >
+                    <path
+                      d="M4 6h16M4 12h16M4 18h16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </nav>
+            <div id="mobile-overlay" class="navigation-mobile-overlay">
+              <div class="navigation-overlay-header">
+                <a href="index.html">
+                  <div aria-label="Aijudica Home" class="navigation-brand">
+                    <div class="navigation-logo-icon">
+                      <svg
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7 20h10M6 6l6-1l6 1m-6-3v17m-3-8L6 6l-3 6a3 3 0 0 0 6 0m12 0l-3-6l-3 6a3 3 0 0 0 6 0"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span class="navigation-brand-name section-title">
+                      AI 시대 공공판단 이론
+                    </span>
+                  </div>
+                </a>
+                <button
+                  id="nav-close"
+                  aria-label="Close navigation"
+                  class="navigation-mobile-close"
+                >
+                  <svg
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="3" y="3" rx="2" width="18" height="18"></rect>
+                      <path d="M3 9h18M9 16l3-3l3 3"></path>
+                    </g>
+                  </svg>
+                </button>
+              </div>
+              <div class="navigation-overlay-content">
+                <div class="navigation-mobile-links">
+                  <a href="index.html">
+                    <div class="navigation-mobile-link">
+                      <span>이론 소개</span>
+                    </div>
+                  </a>
+                  <a href="index.html">
+                    <div class="navigation-mobile-link">
+                      <span>핵심 원리</span>
+                    </div>
+                  </a>
+                  <a href="index.html">
+                    <div class="navigation-mobile-link">
+                      <span>핵심 질문</span>
+                    </div>
+                  </a>
+                  <a href="index.html">
+                    <div class="navigation-mobile-link">
+                      <span>연구 과제</span>
+                    </div>
+                  </a>
+                  <a href="index.html">
+                    <div class="navigation-mobile-link">
+                      <span>연구노트</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="navigation-mobile-actions">
+                  <a href="index.html">
+                    <div class="btn-primary btn-lg btn">
+                      <span>문의하기</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="navigation-container4">
+              <div class="navigation-container5">
+                <style>
+                          @keyframes fadeIn {from {opacity: 0;
+                  transform: translateY(-10px);}
+                  to {opacity: 1;
+                  transform: translateY(0);}}
+                </style>
+              </div>
+            </div>
+            <div class="navigation-container6">
+              <div class="navigation-container7">
+                <script defer="" data-name="navigation-logic">
+                  document.addEventListener('DOMContentLoaded', function() {
+                    (function(){
+                      const navToggle = document.getElementById("nav-toggle")
+                      const navClose = document.getElementById("nav-close")
+                      const mobileOverlay = document.getElementById("mobile-overlay")
+                      const mobileLinks = document.querySelectorAll(".navigation-mobile-link")
+
+                      const openMenu = () => {
+                        mobileOverlay.classList.add("is-active")
+                        navToggle.setAttribute("aria-expanded", "true")
+                        document.body.style.overflow = "hidden"
+                      }
+
+                      const closeMenu = () => {
+                        mobileOverlay.classList.remove("is-active")
+                        navToggle.setAttribute("aria-expanded", "false")
+                        document.body.style.overflow = ""
+                      }
+
+                      navToggle.addEventListener("click", openMenu)
+                      navClose.addEventListener("click", closeMenu)
+
+                      mobileLinks.forEach((link) => {
+                        link.addEventListener("click", closeMenu)
+                      })
+
+                      document.addEventListener("keydown", (e) => {
+                        if (e.key === "Escape" && mobileOverlay.classList.contains("is-active")) {
+                          closeMenu()
+                        }
+                      })
+                    })()
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+        </navigation-wrapper>
+<section class="hero-overview">
+  <div class="hero-media-bg">
+    <img
+      alt="AI 시대 공공판단 이론 프레임워크 배경 이미지"
+      src="./images/backgrgr.jpg"
+      class="hero-bg-img"
+    />
+    <div class="hero-scrim-overlay"></div>
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-content-block">
+      <h1 class="home-thq-hero-title-elm1 hero-title">
+        공공판단 프레임워크
+      </h1>
+      <h1 class="home-thq-hero-title-elm2 hero-title">
+        Public Judgement Framework
+      </h1>
+      <p class="hero-subtitle">
+        AI 보조 환경에서 인간의 공공판단이 어떻게 형성되고, 정당화되며, 책임으로 연결되는지를 단계적으로 구조화합니다.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#framework-flow">
+          <div class="btn-primary btn-lg btn">
+            <span>판단 흐름 보기</span>
+          </div>
+        </a>
+        <a href="#model-components">
+          <div class="btn-outline btn-lg btn">
+            <span>구성 요소 보기</span>
+          </div>
+        </a>
+        <a href="./theory.html">
+          <div class="btn-outline btn-lg btn">
+            <span>이론 소개로 이동</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="framework-flow" class="concepts-snapshot">
+  <div class="concepts-container">
+    <div class="concepts-header">
+      <h2 class="section-title">공공판단의 기본 흐름</h2>
+      <p class="section-content">
+        AI 시대 공공판단 이론은 판단을 단순한 결론 도출이 아니라,
+        정보 입력, 맥락 해석, 판단 형성, 공공책임 검토, 실행, 피드백으로 이어지는
+        구조적 과정으로 봅니다.
+      </p>
+    </div>
+
+    <div class="concepts-grid">
+      <div class="concept-card">
+        <h3 class="section-subtitle">1. 정보 입력</h3>
+        <p class="section-content">
+          사건, 데이터, 신고 내용, 기록, AI 분석 결과, 현장 진술 등 판단에 필요한 정보가 들어오는 단계입니다.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">2. 맥락 해석</h3>
+        <p class="section-content">
+          정보의 표면적 내용만 보는 것이 아니라 관계, 상황, 위험 신호, 제도적 조건을 함께 해석합니다.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">3. 판단 형성</h3>
+        <p class="section-content">
+          경험 기반 직관, 분석적 사고, 규정 검토, AI 보조 분석을 종합하여 잠정적 판단을 형성합니다.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">4. 공공책임 검토</h3>
+        <p class="section-content">
+          판단이 시민의 권리, 안전, 보호, 공정성, 설명 가능성 측면에서 정당화될 수 있는지 검토합니다.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">5. 실행</h3>
+        <p class="section-content">
+          판단은 조치, 안내, 보호, 개입, 보고, 정책 결정 등의 구체적 공공 행위로 연결됩니다.
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">6. 피드백</h3>
+        <p class="section-content">
+          결과와 반응을 다시 기록하고 학습하여 이후 판단 기준과 조직적 대응을 개선합니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="model-components" class="why-matters">
+  <div class="why-container">
+    <div class="why-grid">
+      <div class="why-text-content">
+        <h2 class="section-title">프레임워크의 핵심 구성 요소</h2>
+        <p class="section-content">
+          공공판단은 단일한 능력이 아니라 여러 요소가 결합된 복합적 판단 구조입니다.
+          AI 시대에는 특히 인간 판단과 AI 보조의 역할 경계를 명확히 구분하는 것이 중요합니다.
+        </p>
+
+        <div class="why-benefit-list">
+          <div class="benefit-item">
+            <span class="benefit-tag">Information</span>
+            <p class="section-content">
+              판단의 재료가 되는 사건 정보, 데이터, 진술, 기록, AI 분석 결과
+            </p>
+          </div>
+
+          <div class="benefit-item">
+            <span class="benefit-tag">Interpretation</span>
+            <p class="section-content">
+              단순 정보가 아니라 맥락, 관계, 위험, 의미를 읽어내는 해석 과정
+            </p>
+          </div>
+
+          <div class="benefit-item">
+            <span class="benefit-tag">Judgement</span>
+            <p class="section-content">
+              직관적 판단과 분석적 판단을 결합하여 결론을 형성하는 인간의 판단 작용
+            </p>
+          </div>
+
+          <div class="benefit-item">
+            <span class="benefit-tag">Accountability</span>
+            <p class="section-content">
+              판단의 근거를 설명하고 결과에 대해 공공적으로 책임지는 구조
+            </p>
+          </div>
+
+          <div class="benefit-item">
+            <span class="benefit-tag">Action</span>
+            <p class="section-content">
+              판단이 실제 조치, 개입, 보호, 정책, 보고로 전환되는 실행 단계
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-media-content">
+        <div class="why-image-wrapper">
+          <img
+            alt="공공판단 프레임워크를 상징하는 이미지"
+            src="./images/backgrgr.jpg"
+            class="why-img"
+          />
+          <div class="why-img-accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ai-human-role" class="impact-highlights">
+  <h2 class="text-center section-title">AI와 인간 판단의 역할 분담</h2>
+
+  <div class="impact-container">
+    <div class="impact-grid">
+      <div class="impact-item">
+        <h3 class="section-subtitle">AI의 역할</h3>
+        <p class="section-content">
+          AI는 데이터 정리, 패턴 탐지, 위험 신호 제시, 예측 분석, 문서 작성 보조 등에서 강점을 가집니다.
+        </p>
+      </div>
+
+      <div class="impact-item">
+        <h3 class="section-subtitle">인간의 역할</h3>
+        <p class="section-content">
+          인간은 맥락 해석, 가치 충돌 조정, 책임 판단, 최종 정당화에서 핵심 역할을 수행합니다.
+        </p>
+      </div>
+
+      <div class="impact-item">
+        <h3 class="section-subtitle">공공조직의 역할</h3>
+        <p class="section-content">
+          조직은 판단 기준, 기록 체계, 설명 구조, 책임 분담 절차를 설계해야 합니다.
+        </p>
+      </div>
+
+      <div class="impact-item">
+        <h3 class="section-subtitle">위험한 오해</h3>
+        <p class="section-content">
+          AI가 판단을 지원한다는 사실이 곧 인간의 책임을 제거한다는 뜻은 아닙니다.
+        </p>
+      </div>
+
+      <div class="impact-item">
+        <h3 class="section-subtitle">좋은 활용</h3>
+        <p class="section-content">
+          AI는 판단을 대체하는 도구가 아니라, 인간의 공공판단을 더 투명하고 일관되게 만드는 보조 장치가 되어야 합니다.
+        </p>
+      </div>
+
+      <div class="impact-item">
+        <h3 class="section-subtitle">최종 원칙</h3>
+        <p class="section-content">
+          공공영역에서 AI 분석은 참고자료가 될 수 있지만, 시민에게 영향을 미치는 판단은 설명 가능한 인간 책임 구조 안에 있어야 합니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="comparison" class="apps-nav">
+  <div class="apps-container">
+    <div class="apps-intro">
+      <h2 class="section-title">기존 의사결정 모델과의 차이</h2>
+      <p class="section-content">
+        AI 시대 공공판단 프레임워크는 기존 의사결정 이론을 부정하지 않습니다.
+        오히려 기존 이론을 공공책임성과 AI 보조 환경이라는 조건 속에서 재구성합니다.
+      </p>
+    </div>
+
+    <div class="apps-grid">
+      <div class="app-card">
+        <h3 class="section-subtitle">일반 의사결정</h3>
+        <p class="section-content">
+          여러 선택지 중 하나를 고르는 과정에 초점을 둡니다.
+          효율성, 합리성, 선택 결과가 주된 관심입니다.
+        </p>
+      </div>
+
+      <div class="app-card">
+        <h3 class="section-subtitle">전문가 판단</h3>
+        <p class="section-content">
+          경험, 패턴 인식, 직관, 현장 적응력을 강조합니다.
+          불확실한 상황에서의 빠른 판단을 설명하는 데 유용합니다.
+        </p>
+      </div>
+
+      <div class="app-card">
+        <h3 class="section-subtitle">AI 보조 의사결정</h3>
+        <p class="section-content">
+          데이터 분석, 예측 모델, 알고리즘 추천을 통해 인간의 의사결정을 보조합니다.
+          그러나 책임성과 정당화 문제가 남습니다.
+        </p>
+      </div>
+
+      <div class="app-card">
+        <h3 class="section-subtitle">공공판단</h3>
+        <p class="section-content">
+          선택의 효율성뿐 아니라 권리, 안전, 책임, 설명 가능성, 제도적 정당성을 함께 고려합니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="framework-summary" class="concepts-snapshot">
+  <div class="concepts-container">
+    <div class="concepts-header">
+      <h2 class="section-title">프레임워크 요약</h2>
+      <p class="section-content">
+        AI 시대 공공판단은 AI 분석을 활용하되, 최종적으로는 인간이 맥락을 해석하고
+        공공적 책임 아래 판단을 정당화하는 구조입니다.
+      </p>
+    </div>
+
+    <div class="concepts-grid">
+      <div class="concept-card">
+        <h3 class="section-subtitle">핵심 질문 1</h3>
+        <p class="section-content">
+          이 판단은 어떤 정보와 AI 분석을 바탕으로 형성되었는가?
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">핵심 질문 2</h3>
+        <p class="section-content">
+          인간 판단자는 어떤 맥락과 위험을 해석했는가?
+        </p>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">핵심 질문 3</h3>
+        <p class="section-content">
+          이 판단은 시민의 권리, 안전, 책임성 측면에서 설명 가능한가?
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="concepts-snapshot">
+  <div class="concepts-container">
+    <div class="concepts-header">
+      <h2 class="section-title">다음으로 볼 내용</h2>
+      <p class="section-content">
+        프레임워크를 이해한 뒤에는 실제 공공영역에서 어떻게 적용되는지 살펴볼 수 있습니다.
+      </p>
+    </div>
+
+    <div class="concepts-grid">
+      <div class="concept-card">
+        <h3 class="section-subtitle">이론 소개</h3>
+        <p class="section-content">
+          공공판단 이론의 문제의식, 정의, 핵심 개념, 이론적 계보를 확인합니다.
+        </p>
+        <a href="./theory.html">
+          <div class="btn-link"><span>이론 소개 보기</span></div>
+        </a>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">적용 분야</h3>
+        <p class="section-content">
+          경찰, 피해자 보호, 행정, 복지, 위험도 평가 등 실제 적용 가능성을 살펴봅니다.
+        </p>
+        <a href="./applications.html">
+          <div class="btn-link"><span>적용 분야 보기</span></div>
+        </a>
+      </div>
+
+      <div class="concept-card">
+        <h3 class="section-subtitle">홈으로 이동</h3>
+        <p class="section-content">
+          전체 사이트 소개와 핵심 개요를 다시 보려면 홈으로 돌아갈 수 있습니다.
+        </p>
+        <a href="./index.html">
+          <div class="btn-link"><span>홈으로 돌아가기</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+        <div class="home-container2">
+          <div class="home-container3">
+            <script defer="" data-name="ai-judgement-animations">
+              document.addEventListener('DOMContentLoaded', function() {
+                (function(){
+                  // Handle scroll reveals for a more academic, polished feel
+                  const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px",
+                  }
+
+                  const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                      if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1"
+                        entry.target.style.transform = "translateY(0)"
+                        revealObserver.unobserve(entry.target)
+                      }
+                    })
+                  }, observerOptions)
+
+                  // Apply initial styles and start observing
+                  const revealElements = document.querySelectorAll(".concept-card, .impact-item, .app-card, .team-card, .step-item")
+                  revealElements.forEach((el) => {
+                    el.style.opacity = "0"
+                    el.style.transform = "translateY(20px)"
+                    el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out"
+                    revealObserver.observe(el)
+                  })
+
+                  // Stagger the animation of grid items
+                  const grids = document.querySelectorAll(".concepts-grid, .impact-grid, .apps-grid, .team-grid")
+                  grids.forEach((grid) => {
+                    const items = grid.children
+                    Array.from(items).forEach((item, index) => {
+                      item.style.transitionDelay = `${index * 0.1}s`
+                    })
+                  })
+
+                  // Simple parallax for hero background
+                  window.addEventListener("scroll", () => {
+                    const scrolled = window.pageYOffset
+                    const heroBg = document.querySelector(".hero-bg-img")
+                    if (heroBg) {
+                      heroBg.style.transform = `translateY(${scrolled * 0.3}px)`
+                    }
+                  })
+                })()
+              });
+            </script>
+          </div>
+        </div>
+        <footer-wrapper class="footer-wrapper">
+          <!--Footer component-->
+          <div class="footer-container1">
+            <footer class="footer-root">
+              <div class="footer-container">
+                <div class="footer-top">
+                  <div class="footer-brand-column">
+                    <a href="Homepage">
+                      <div class="footer-logo-link">
+                        <span class="footer-logo-text">
+                          AI 시대 공공판단 이론
+                        </span>
+                      </div>
+                    </a>
+                    <p class="footer-brand-description section-content">
+                       AI 시대 공공판단 이론의 개념, 구조, 적용 가능성을 정리하는
+                      연구 아카이브입니다. 인간 판단과 AI 보조의 관계를
+                      공공책임성의 관점에서 탐구합니다.
+                    </p>
+                  </div>
+                  <div class="footer-nav-grid">
+                    <div class="footer-nav-column">
+                      <h2 class="section-subtitle footer-column-title">
+                        이론 구조
+                      </h2>
+                      <nav
+                        aria-label="Theory Navigation"
+                        class="footer-nav-list"
+                      >
+                        <a href="#">
+                          <div class="footer-nav-link">
+                            <span>이론 소개</span>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="footer-nav-link">
+                            <span>핵심 원리</span>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="footer-nav-link">
+                            <span>핵심 질문</span>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="footer-nav-link">
+                            <span>연구 과제</span>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="footer-nav-link"><span>요약서</span></div>
+                        </a>
+                      </nav>
+                    </div>
+                    <div class="footer-nav-column">
+                      <h2 class="section-subtitle footer-column-title">
+                        연구 아카이브
+                      </h2>
+                      <nav
+                        aria-label="Organization Navigation"
+                        class="footer-nav-list"
+                      >
+                        <a href="#">
+                          <div class="footer-nav-link">
+                            <span>연구노트</span>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="footer-nav-link">
+                            <span>발표자료</span>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="footer-nav-link">
+                            <span>참고문헌</span>
+                          </div>
+                        </a>
+                        <a href="#">
+                          <div class="footer-nav-link">
+                            <span>문의하기</span>
+                          </div>
+                        </a>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-bottom">
+                  <div class="footer-bottom-content">
+                    <p class="footer-copyright">
+                      © 2026 AI 시대 공공판단 이론. All rights reserved.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <div class="footer-container2">
+              <div class="footer-container3">
+                <script defer="" data-name="footer-logic">
+                  document.addEventListener('DOMContentLoaded', function() {
+                    (function(){
+                      const newsletterForm = document.querySelector(".footer-newsletter-form")
+                      if (newsletterForm) {
+                        newsletterForm.addEventListener("submit", (e) => {
+                          const input = newsletterForm.querySelector(".footer-input")
+                          if (input && input.checkValidity()) {
+                            const originalText = newsletterForm.querySelector(".footer-submit-btn span").textContent
+                            const btn = newsletterForm.querySelector(".footer-submit-btn")
+
+                            btn.disabled = true
+                            btn.querySelector("span").textContent = "Subscribed"
+                            input.value = ""
+
+                            setTimeout(() => {
+                              btn.disabled = false
+                              btn.querySelector("span").textContent = originalText
+                            }, 3000)
+                          }
+                        })
+                      }
+                    })()
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+        </footer-wrapper>
+  </body>
+</html>
